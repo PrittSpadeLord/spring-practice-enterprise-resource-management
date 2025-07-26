@@ -24,7 +24,7 @@ public abstract class Employee {
     private long dateOfBirthMillis;
     private long dateOfJoiningMillis;
 
-    private Role role;
+    @NonNull private Role role;
 
     public Employee(
             @NonNull String firstName,
@@ -32,7 +32,7 @@ public abstract class Employee {
             @NonNull String lastName,
             long dateOfBirthMillis,
             long dateOfJoiningMillis,
-            Role role
+            @NonNull Role role
     ) {
         this.firstName = firstName;
         this.middleName = middleName;
@@ -62,6 +62,7 @@ public abstract class Employee {
         return this.firstName + " " + Objects.toString(this.middleName, "") + " " + this.lastName;
     }
 
+    @NonNull
     public Date getBirthDate() {
         return new Date(this.dateOfBirthMillis);
     }
@@ -75,6 +76,7 @@ public abstract class Employee {
         return (int) Math.floor(ageF);
     }
 
+    @NonNull
     public Date getJoiningDate() {
         return new Date(this.dateOfJoiningMillis);
     }
